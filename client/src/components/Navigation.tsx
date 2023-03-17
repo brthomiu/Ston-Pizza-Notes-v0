@@ -1,7 +1,8 @@
 const Navigation = () => {
   return (
     <div>
-      Navigation Component
+      <a href="/">Landing Page</a>
+      <a href="/About">About</a>
     </div>
   );
 };
