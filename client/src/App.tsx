@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // Page Style
 import './App.css'
-// Route imports
+// Page/Component imports
+import Navigation from './components/Navigation'
 import Splash from './pages/Splash' 
 import About from './pages/About'
 
@@ -11,6 +12,7 @@ function App() {
 
     <div className="App">
       <Router>
+        <Navigation />
       <Routes>
         <Route path='/' element={<Splash />} />
         <Route path='/about' element={<About />} />
