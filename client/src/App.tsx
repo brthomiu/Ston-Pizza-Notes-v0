@@ -1,12 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// Page Style
 import './App.css'
-import Splash from './pages/Splash'
+// Route imports
+import Splash from './pages/Splash' 
 
 function App() {
 
   return (
+
     <div className="App">
-      <Splash />
+      <Router>
+      <Routes>
+        <Route path='/' element={<Splash />} />
+      </Routes>
+      </Router>
     </div>
+
   )
 }
 
