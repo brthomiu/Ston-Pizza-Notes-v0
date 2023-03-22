@@ -1,7 +1,14 @@
-import express from 'express'
+import express from "express";
+import { createUserHandler } from "../controllers/userController";
+import validateResource from "../middleware/validateResource";
+import { createUserSchema } from "../schema/userSchema";
 
-const router = express.Router()
+const router = express.Router();
 
-router.post("/api/users", (req, res) => res.sendStatus(200))
+router.post(
+  "/api/users",
+  validateResource(createUserSchema),
+  createUserHandler
+);
 
-export default router
+export default router;
