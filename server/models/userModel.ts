@@ -5,6 +5,7 @@ import {
   Severity,
   pre,
   DocumentType,
+  index,
 } from "@typegoose/typegoose";
 import { nanoid } from "nanoid";
 import argon2 from "argon2";
@@ -20,7 +21,7 @@ import argon2 from "argon2";
 
   return;
 })
-
+@index({ email: 1 })
 // Model options for typegoose schema
 @modelOptions({
   schemaOptions: {
