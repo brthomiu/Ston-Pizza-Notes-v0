@@ -9,6 +9,10 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT;
 
+// Middleware for handling JSON requests, called before router
+app.use(express.json())
+
+// Express router
 app.use(router)
 
 // Routes
