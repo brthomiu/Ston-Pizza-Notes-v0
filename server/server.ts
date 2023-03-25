@@ -4,7 +4,7 @@ import connectToDb from "./utils/connectToDb";
 import log from "./utils/logger";
 import router from './routes'
 
-dotenv.config();
+dotenv.config({path: './.env'});
 
 const app: Express = express();
 const port = process.env.PORT;
