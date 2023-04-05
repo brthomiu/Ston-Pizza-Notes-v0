@@ -77,3 +77,11 @@ export const loginUser = expressAsyncHandler(async (req, res) => {
     throw new Error("Invalid credentials.");
   }
 });
+
+// Get user data
+// POST /api/users/me
+// Private
+export const getMe = expressAsyncHandler(async (req: any, res) => {
+  console.log("getMe user:", req.user);
+  res.status(200).json(req.user);
+});
