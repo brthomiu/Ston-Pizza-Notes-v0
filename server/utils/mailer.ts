@@ -28,12 +28,16 @@ const smtp: smtp_type = {
 };
 
 // Nodemailer transporter to send email using credentials from smtp object
+
 const transporter = nodemailer.createTransport({
-  ...smtp,
+  host: smtp.host,
+  port: smtp.port,
+  secure: smtp.secure,
   auth: { user: smtp.user, pass: smtp.pass },
 });
 
 async function sendEmail(payload: SendMailOptions) {
+  console.log("begin sendEmail function");
   transporter.sendMail(payload, (err, info) => {
     if (err) {
       log.error(err, "Error sending email");

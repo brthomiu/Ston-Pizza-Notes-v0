@@ -15,10 +15,11 @@ import argon2 from "argon2";
   if (!this.isModified("password")) {
     return;
   }
+  console.log("hashing password")
   const hash = await argon2.hash(this.password);
 
   this.password = hash;
-
+  console.log("password hashed")
   return;
 })
 @index({ email: 1 })
@@ -56,6 +57,7 @@ export class User {
   verified: boolean;
 
   async validatePassword(this: DocumentType<User>, candidatePassword: string) {
+    console.log("validating password")
     try {
       return await argon2.verify(this.password, candidatePassword);
     } catch (e) {

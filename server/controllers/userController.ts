@@ -14,12 +14,13 @@ export async function createUserHandler(
   const body = req.body;
 
   try {
+    console.log("creating user request body:", body)
     const user = await createUser(body);
-
+    console.log("user request body created:", user)
     // Call mailer utility to send verification email for account creation
     // ***Currently sends a test email***
     await sendEmail({
-      from: _default.TEST_EMAIL_FROM,
+      from: "example@email.com",
       to: user.email,
       subject: "Please verify your account",
       text: `Verification code: ${user.verificationCode} ID: ${user._id}`,
@@ -32,6 +33,7 @@ export async function createUserHandler(
       return res.status(409).send("Account already exists");
     }
     // Otherwise return generic error
+    console.log("error returned - userController.ts line 37")
     return res.status(500).send(e);
   }
 }
