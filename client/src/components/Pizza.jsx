@@ -1,8 +1,9 @@
 const Pizza = (props) => {
   return (
-    <div>
+    <div id={`pizza${props.id}`}>
       <p>{props.owner}</p>
       <p>{props.name}</p>
+      <p>{props.ingredients}</p>
       <p>{props.recipe}</p>
     </div>
   );
