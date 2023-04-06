@@ -27,7 +27,7 @@ const Register = () => {
     }
 
     if (isSuccess || user) {
-      navigate("/");
+      navigate("/home");
     }
 
     dispatch(reset());
