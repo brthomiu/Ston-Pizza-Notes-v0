@@ -16,13 +16,7 @@ app.use(express.json());
 // Express router
 app.use(router);
 
-// // Routes
-// app.get("/", (req: Request, res: Response) => {
-//   res.send("Express + TypeScript Server");
-// });
-
 // Serve frontend
-
 app.use(express.static(path.join(__dirname, '../../client/dist')))
 
 app.get('*', (req, res) =>

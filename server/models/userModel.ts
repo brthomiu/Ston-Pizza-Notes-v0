@@ -3,14 +3,14 @@ const { Schema } = mongoose;
 
 // 1. Create an interface representing a document in MongoDB.
 export interface IUser {
-  userName: string;
+  name: string;
   email: string;
   password: string;
 }
 
 // 2. Create a Schema correspondinsg to the document interface.
 export const userSchema = new Schema<IUser>({
-  userName: { type: String, required: true, unique: true },
+  name: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });

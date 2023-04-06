@@ -1,26 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Page Style
-import './App.css'
+import "./App.css";
 // Page/Component imports
-import Navigation from './components/Navigation'
-import Splash from './pages/Splash' 
-import About from './pages/About'
+import Navigation from "./components/Navigation";
+import Login from "./pages/Login";
+import About from "./pages/About";
+import Register from "./pages/Register";
 
 function App() {
-
   return (
-
     <div className="App">
       <Router>
         <Navigation />
-      <Routes>
-        <Route path='/' element={<Splash />} />
-        <Route path='/about' element={<About />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </Router>
     </div>
-
-  )
+  );
 }
 
-export default App
+export default App;

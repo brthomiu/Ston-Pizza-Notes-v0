@@ -3,9 +3,9 @@ import { loginUser } from "../controllers/userController";
 
 const router = express.Router();
 
-router.post("/api/login", loginUser);
+router.post("/api/users/login", loginUser);
 
-router.get("/api/login", (req: Request, res: Response) => {
+router.get("/api/users/login", (req: Request, res: Response) => {
   res.send("This is not the way to log in!!");
 });
 
