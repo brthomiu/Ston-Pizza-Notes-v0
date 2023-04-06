@@ -1,3 +1,5 @@
+// Loading spinner component
+
 function Spinner() {
   return (
     <div className="loadingSpinnerContainer">

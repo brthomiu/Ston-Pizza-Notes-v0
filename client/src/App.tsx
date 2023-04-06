@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 
+// Main app component
 function App() {
   return (
     <div className="App">

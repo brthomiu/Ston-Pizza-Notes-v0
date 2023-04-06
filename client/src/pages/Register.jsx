@@ -6,6 +6,7 @@ import { register, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
 
 const Register = () => {
+  // Local state for username, email, and password entry forms
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,25 +15,30 @@ const Register = () => {
   });
   const { name, email, password, password2 } = formData;
 
+  // Initialize navigate and dispatch
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // Global state from Redux store
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
 
+  // useEffect hook - Handles registration navigation depending on global state
   useEffect(() => {
+    // Throws error if there is a registration error
     if (isError) {
       toast.error(message);
     }
-
+    // If registration is successful or user is already logged in, navigates to the home page
     if (isSuccess || user) {
       navigate("/home");
     }
-
+    // Reset state
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
+  // Function to handle form string input
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -40,6 +46,8 @@ const Register = () => {
     }));
   };
 
+  // Dispatches login function with form input data
+  // Throws error if passwords do not match
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -56,9 +64,12 @@ const Register = () => {
     }
   };
 
+  // Return the spinner if state is loading
   if (isLoading) {
     return <Spinner />;
   }
+
+  // Otherwise return registration section
   return (
     <div>
       <section className="form">
