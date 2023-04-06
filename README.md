@@ -1,7 +1,23 @@
-# Brad's 2023 Typescript Sandbox Project
+# Brad's 2023 MERN Stack App Template
 
-This is a full stack webapp made to practice using TypeScript on a real project.
+This branch is meant to serve as a template for creating MERN stack webapps!
 
-Features a Node/Express backend with a MongoDB cluster, and a React frontend.
+# Backend
 
-I will update this readme once I finish building out basic functionality and decide what I am actually building.
+## Technologies
+TypeScript, Node, Express, MongoDB, Mongoose, JWT
+
+## Features
+The backend serves the frontend and has API routes for user registration and login.
+It also uses Mongoose to connect to a MongoDB cluster, and hashes password data into a JSON Web Token prior to storage.
+
+# Frontend
+
+## Technologies
+JavaScript, React, React-Router, Redux-Toolkit
+
+## Features
+The layout consists of a few simple unstyled page components and a navbar component.
+Login and registration forms are hooked into the global state and function as expected.
+Global state is handled using Redux-Toolkit; authSlice contains reducers, actions are dispatched from authService to update the store.
+React-Router is used to handle navigation, user will be redirected to home page while logged in and to login page while logged out.
