@@ -70,7 +70,7 @@ const CreatePizzas = () => {
           <div className="form-group">
             <input
               type="pizzaName"
-              className="login--form-control"
+              className="pizzaName--form-control"
               id="pizzaName"
               name="pizzaName"
               value={pizzaName}

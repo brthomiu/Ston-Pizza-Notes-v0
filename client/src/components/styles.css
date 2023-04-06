@@ -4,7 +4,12 @@
   display: flex;
   justify-content: center;
   gap: 4rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+}
+
+.navbar--logo {
+  max-width: 32rem;
+  margin-bottom: 2rem;
 }
 
 /* Pizza Component Styles */

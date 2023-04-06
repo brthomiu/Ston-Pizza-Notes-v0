@@ -12,16 +12,22 @@
   margin-bottom: 0.5rem;
 }
 
+.pizzaName--form-control {
+  padding: 0.5rem;
+  width: 32rem;
+  margin-bottom: 0.5rem;
+}
+
 .ingredients--form-control {
   padding: 0.5rem;
-  width: 18rem;
+  width: 32rem;
   height: 4rem;
   margin-bottom: 0.5rem;
 }
 
 .recipe--form-control {
   padding: 0.5rem;
-  width: 18rem;
+  width: 32rem;
   height: 12rem;
   margin-bottom: 0.5rem;
 }
@@ -54,5 +60,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .pizzaName--form-control {
+    width: 22rem;
+  }
+  
+  .ingredients--form-control {
+    width: 22rem;
+
+  }
+  
+  .recipe--form-control {
+    width: 22rem;
   }
 }

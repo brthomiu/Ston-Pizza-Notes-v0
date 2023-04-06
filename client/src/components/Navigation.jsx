@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
-import './styles.css'
+import "./styles.css";
+import logo from "../assets/stonHeader.svg";
 
 // Navigation bar component
 
@@ -22,22 +23,42 @@ const Navigation = () => {
   if (!user) {
     return (
       //Returns navigation bar
-      <nav className="navbar">
-        <Link to="/"><button>Login</button></Link>
-        <Link to="/About"><button>About</button></Link>
-        <Link to="/ViewPizzas"><button>View Pizzas</button></Link>
-        <Link to="/Register"><button>Register</button></Link>
-      </nav>
+      <>
+        <nav className="navbar">
+          <Link to="/">
+            <button>Login</button>
+          </Link>
+          <Link to="/About">
+            <button>About</button>
+          </Link>
+          <Link to="/ViewPizzas">
+            <button>View Pizzas</button>
+          </Link>
+          <Link to="/Register">
+            <button>Register</button>
+          </Link>
+        </nav>
+        <img className="navbar--logo" src={logo} alt="Logo" />
+      </>
     );
   } else {
     return (
       //Returns navigation bar
-      <nav className="navbar">
-        <Link to="/Home"><button>Home</button></Link>
-        <Link to="/CreatePizzas"><button>Create Pizza</button></Link>
-        <Link to="/ViewPizzas"><button>View Pizzas</button></Link>
-        <button onClick={onLogout}>Logout</button>
-      </nav>
+      <>
+        <nav className="navbar">
+          <Link to="/Home">
+            <button>Home</button>
+          </Link>
+          <Link to="/CreatePizzas">
+            <button>Create Pizza</button>
+          </Link>
+          <Link to="/ViewPizzas">
+            <button>View Pizzas</button>
+          </Link>
+          <button onClick={onLogout}>Logout</button>
+        </nav>
+        <img className="navbar--logo" src={logo} alt="Logo" />
+      </>
     );
   }
 };
