@@ -4,7 +4,7 @@ import { Pizza } from "../models/pizzaModel";
 // Create new pizza
 // POST /api/pizzas
 export const createPizza = expressAsyncHandler(async (req, res) => {
-  const {owner, pizzaName, ingredients, recipe } = req.body;
+  const { owner, pizzaName, ingredients, recipe } = req.body;
 
   if (!owner || !pizzaName || !ingredients || !recipe) {
     res.status(400);
@@ -31,4 +31,13 @@ export const createPizza = expressAsyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Invalid user data");
   }
+});
+
+//@desc     Get pizzas
+//@route    GET /api/pizzas
+//@access   Private
+export const getPizzas = expressAsyncHandler(async (req, res) => {
+  const pizzas = await Pizza.find();
+
+  res.status(200).json(pizzas);
 });

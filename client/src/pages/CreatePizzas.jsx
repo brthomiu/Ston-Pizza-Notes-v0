@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createPizza } from "../features/pizza/pizzaSlice";
+import { createPizza, reset } from "../features/pizza/pizzaSlice";
 import Spinner from "../components/Spinner";
+import { useNavigate } from "react-router-dom";
 
 const CreatePizzas = () => {
   // Local state for pizza entry
@@ -14,14 +15,16 @@ const CreatePizzas = () => {
 
   const { pizzaName, ingredients, recipe } = formData;
 
-  // Initialize dispatch
+  // Initialize dispatch and navigate
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // Global states from Redux store
   const { user, isLoading } = useSelector((state) => state.auth);
   // const { isLoading } = useSelector((state) => state.pizza);
 
-  let userName = user.name
+  // Set pizza owner to name of user
+  let userName = user.name;
 
   // Function to handle form string input
   const onChange = (e) => {
@@ -29,6 +32,13 @@ const CreatePizzas = () => {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  //Create New Pizza Function
+  const createNewPizza = (pizzaData) => {
+    dispatch(createPizza(pizzaData)); //Logs user out
+    dispatch(reset()); //Resets state
+    navigate("/viewpizzas"); //Navigates to view pizzas page
   };
 
   // Dispatches login function with form input data
@@ -39,11 +49,11 @@ const CreatePizzas = () => {
     const pizzaData = {
       owner: userName,
       pizzaName,
-      ingredients: ingredients.split(/(?:,| )+/),
+      ingredients: ingredients.split(/(?:,| )+/), // regex hurts my brain - this splits by commas, spaces, and/or both.
       recipe,
     };
 
-    dispatch(createPizza(pizzaData));
+    dispatch(createNewPizza(pizzaData));
   };
 
   // Return the spinner if state is loading
@@ -74,7 +84,7 @@ const CreatePizzas = () => {
               className="form-control"
               id="ingredients"
               name="ingredients"
-              value={ingredients} // regex hurts my brain
+              value={ingredients}
               placeholder="Enter ingredients."
               onChange={onChange}
             />
