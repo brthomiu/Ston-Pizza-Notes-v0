@@ -13,7 +13,7 @@ export const createPizza = expressAsyncHandler(async (req, res) => {
   }
 
   // Check if ID exists
-  const idExists = await id.findOne({ id });
+  const idExists = await Pizza.findOne({ id });
   if (idExists) {
     res.status(400);
     throw new Error(
@@ -36,6 +36,7 @@ export const createPizza = expressAsyncHandler(async (req, res) => {
     res.status(201).json({
       _id: pizza._id,
       id: pizza.id,
+      owner: pizza.owner,
       pizzaName: pizza.pizzaName,
       ingredients: pizza.ingredients,
       recipe: pizza.recipe,
