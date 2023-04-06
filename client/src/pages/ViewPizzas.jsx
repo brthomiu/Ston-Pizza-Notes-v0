@@ -1,4 +1,3 @@
-/* global console */
 import Pizza from "../components/Pizza";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +13,7 @@ const ViewPizzas = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
   const { pizza, isError, isLoading, message } = useSelector(
     (state) => state.pizza
   );
