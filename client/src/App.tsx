@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import CreatePizzas from "./pages/CreatePizzas";
+import ViewPizzas from "./pages/ViewPizzas";
 
 // Main app component
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
+          <Route path="/createpizzas" element={<CreatePizzas />} />
+          <Route path="/viewpizzas" element={<ViewPizzas />} />
         </Routes>
       </Router>
     </div>
