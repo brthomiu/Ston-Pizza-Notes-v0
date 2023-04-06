@@ -6,7 +6,7 @@ const ViewPizzas = () => {
       <Pizza
         id={"1"}
         owner={"chef"}
-        name={"new pizza"}
+        pizzaName={"new pizza"}
         ingredients={["flour ", "tomatoes ", "cheese "]}
         recipe={"make the pizza"}
       />
