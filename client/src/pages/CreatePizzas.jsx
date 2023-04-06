@@ -20,8 +20,8 @@ const CreatePizzas = () => {
   const dispatch = useDispatch();
 
   // Global states from Redux store
-  const { user, isLoading } = useSelector((state) => state.auth);
-  // const { isLoading } = useSelector((state) => state.pizza);
+  const { user } = useSelector((state) => state.auth);
+  const { isLoading } = useSelector((state) => state.pizza);
 
   // Set pizza owner to name of user
   let userName = user.name;

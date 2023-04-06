@@ -10,6 +10,11 @@ dotenv.config({ path: "./.env" });
 const app: Express = express();
 const port = process.env.PORT;
 
+const cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
+
 // Middleware for handling JSON requests, called before router
 app.use(express.json());
 
