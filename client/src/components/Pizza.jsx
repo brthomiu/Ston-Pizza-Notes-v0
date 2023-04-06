@@ -1,6 +1,6 @@
 const Pizza = (props) => {
   return (
-    <div id={`pizza${props.id}`}>
+    <div>
       <p>{props.owner}</p>
       <p>{props.pizzaName}</p>
       <p>{props.ingredients}</p>
