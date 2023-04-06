@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import axios from "axios";
+import "./styles.css"
 
 const ViewPizzas = () => {
   // Local state to store pizza data fetched from backend
@@ -39,7 +40,8 @@ const ViewPizzas = () => {
     return <Spinner />;
   } else {
     return (
-      <>
+      <div className="container">
+      <div className="pizzas--Box">
         {pizzaList.map((pizza) => (
           <div>
             <Pizza
@@ -50,7 +52,8 @@ const ViewPizzas = () => {
             />
           </div>
         ))}
-      </>
+      </div>
+      </div>
     );
   }
 };

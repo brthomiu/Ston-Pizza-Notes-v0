@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createPizza, reset } from "../features/pizza/pizzaSlice";
 import Spinner from "../components/Spinner";
 import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 const CreatePizzas = () => {
   // Local state for pizza entry
@@ -69,7 +70,7 @@ const CreatePizzas = () => {
           <div className="form-group">
             <input
               type="pizzaName"
-              className="form-control"
+              className="login--form-control"
               id="pizzaName"
               name="pizzaName"
               value={pizzaName}
@@ -79,30 +80,34 @@ const CreatePizzas = () => {
           </div>
 
           <div className="form-group">
-            <input
+            <textarea
+              rows="3"
+              cols="40"
               type="ingredients"
-              className="form-control"
+              className="ingredients--form-control"
               id="ingredients"
               name="ingredients"
               value={ingredients}
               placeholder="Enter ingredients."
               onChange={onChange}
-            />
+            ></textarea>
           </div>
 
           <div className="form-group">
-            <input
+            <textarea
+              rows="5"
+              cols="40"
               type="recipe"
-              className="form-control"
+              className="recipe--form-control"
               id="recipe"
               name="recipe"
               value={recipe}
               placeholder="Add your recipe."
               onChange={onChange}
-            />
+            ></textarea>
           </div>
           <div className="form-group">
-            <button type="submit" className="btn btn-block">
+            <button type="submit" className="login--button">
               Submit
             </button>
           </div>

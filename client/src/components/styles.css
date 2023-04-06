@@ -1,0 +1,62 @@
+/* Navigation Component Styles */
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* Pizza Component Styles */
+
+.pizza {
+  border: solid 1px;
+  width: 22rem;
+  height: 28rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 2fr 3fr;
+  padding: 2rem;
+  justify-content: center;
+  border-radius: 1rem;
+  border-color: rgba(238, 183, 107, 0.2);
+  background-color: rgb(36, 36, 36);
+}
+
+.pizza--ingredients {
+  display: flex;
+  flex-direction: row;
+  margin-top: -1rem;
+  flex-wrap: flex-start;
+  justify-content: flex-start;
+  width: 20rem;
+  gap: 1rem;
+}
+
+.pizza--row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 20rem;
+}
+
+.pizza--title {
+  display: flex;
+  margin: auto;
+}
+
+/* Navbar Media Queries */
+
+@media screen and (max-width: 1340px) {
+  .navbar {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    justify-content: center;
+    gap: 1rem;
+  }
+}

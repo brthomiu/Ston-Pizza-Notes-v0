@@ -1,3 +1,5 @@
+import "./styles.css";
+
 const About = () => {
   return (
     <div>

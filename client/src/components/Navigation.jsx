@@ -1,8 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
-// import { useEffect } from "react";
-// import Spinner from "../components/Spinner";
+import './styles.css'
 
 // Navigation bar component
 
@@ -23,22 +22,22 @@ const Navigation = () => {
   if (!user) {
     return (
       //Returns navigation bar
-      <div>
-        <Link to="/">Login</Link>
-        <Link to="/About">About</Link>
-        <Link to="/Register">Register</Link>
-        <button onClick={onLogout}>Logout</button>
-      </div>
+      <nav className="navbar">
+        <Link to="/"><button>Login</button></Link>
+        <Link to="/About"><button>About</button></Link>
+        <Link to="/ViewPizzas"><button>View Pizzas</button></Link>
+        <Link to="/Register"><button>Register</button></Link>
+      </nav>
     );
   } else {
     return (
       //Returns navigation bar
-      <div>
-        <Link to="/Home">Home</Link>
-        <Link to="/CreatePizzas">Create Pizza</Link>
-        <Link to="/ViewPizzas">View Pizzas</Link>
+      <nav className="navbar">
+        <Link to="/Home"><button>Home</button></Link>
+        <Link to="/CreatePizzas"><button>Create Pizza</button></Link>
+        <Link to="/ViewPizzas"><button>View Pizzas</button></Link>
         <button onClick={onLogout}>Logout</button>
-      </div>
+      </nav>
     );
   }
 };
