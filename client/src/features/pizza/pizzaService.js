@@ -9,17 +9,22 @@ const createPizza = async (pizzaData) => {
   return response.data;
 };
 
-const pizzaService = {
-  createPizza,
+// Delete pizza
+const deletePizza = async (pizzaId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.delete(`${API_URL}/:${pizzaId}`, config);
+
+  return response.data;
 };
 
-
-// // Get pizzas - this is a mess that will be cleaned up once the corresponding backend stuff is finished
-// const getPizzas = async (user) => {
-
-//   const response = await axios.get(API_URL, user)
-
-//   return response.data
-// }
+const pizzaService = {
+  createPizza,
+  deletePizza,
+};
 
 export default pizzaService;

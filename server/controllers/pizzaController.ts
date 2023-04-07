@@ -41,3 +41,31 @@ export const getPizzas = expressAsyncHandler(async (req, res) => {
 
   res.status(200).json(pizzas);
 });
+
+//@desc     Delete pizza
+//@route    DELETE /api/pizza/:id
+//@access   Private
+export const deletePizza = expressAsyncHandler(async (req: any, res) => {
+  // const pizza: any = await Pizza.findById(req.params.id);
+
+  // if (!pizza) {
+  //   res.status(400);
+  //   throw new Error("Pizza not found");
+  // }
+
+  // //Check for user
+  // if (!req.user) {
+  //   res.status(401);
+  //   throw new Error("User not found");
+  // }
+
+  // //Make sure the logged in user matches the goal user
+  // if (pizza.user.toString() !== req.user.id) {
+  //   res.status(401);
+  //   throw new Error("User not authorized");
+  // }
+
+  await Pizza.findByIdAndDelete(req.params.id);
+
+  res.status(200).json({ id: req.params.id });
+});

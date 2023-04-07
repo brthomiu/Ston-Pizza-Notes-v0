@@ -27,21 +27,24 @@ export const createPizza = createAsyncThunk(
   }
 );
 
-//Get user pizzas
-export const getPizzas = createAsyncThunk('pizza/getPizzas', async (_,thunkAPI) => {
-  try {
-      const token = thunkAPI.getState().auth.user.token
-      return await pizzaService.getPizzas(token)
-  } catch (error) {
-      const message = (
-          error.response && 
-          error.response.data && 
-          error.response.data.message) || 
-          error.message || 
-          error.toString()
-      return thunkAPI.rejectWithValue(message)
+//Delete pizza
+export const deletePizza = createAsyncThunk(
+  "pizza/deletePizza",
+  async (_id, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await pizzaService.deletePizza(_id, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
   }
-})
+);
 
 export const pizzaSlice = createSlice({
   name: "pizza",
@@ -73,16 +76,18 @@ export const pizzaSlice = createSlice({
         state.pizza = null;
       })
 
-      //getPizzas
-      .addCase(getPizzas.pending, (state) => {
+      .addCase(deletePizza.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getPizzas.fulfilled, (state, action) => {
+      .addCase(deletePizza.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.goals = action.payload;
+        state.message = state.pizza.splice(
+          state.pizza.indexOf(action.payload),
+          1
+        );
       })
-      .addCase(getPizzas.rejected, (state, action) => {
+      .addCase(deletePizza.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
