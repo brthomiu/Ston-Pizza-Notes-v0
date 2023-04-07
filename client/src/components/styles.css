@@ -15,7 +15,7 @@
 /* Modal Styles */
 
 .modal--bg {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
   position: fixed;
   left: 0;
   top: 0;
@@ -33,6 +33,8 @@
   left: 10%;
   border-radius: 1rem;
   z-index: 10;
+  box-shadow: 0 0 3rem 2rem rgba(0,0,0,0.25);
+  border-color: rgba(238, 183, 107, 0.2);
 }
 
 /* Pizza Component Styles */
