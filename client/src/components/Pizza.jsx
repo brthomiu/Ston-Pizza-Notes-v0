@@ -1,9 +1,20 @@
+/* global document */
+
 import "./styles.css";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Modal from "./Modal";
+import { useState } from "react";
 
 const Pizza = (props) => {
-  const navigate = useNavigate();
+  // State for modal
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // Open modal function
+
+  const openModal = () => {
+    setModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
 
   // Pizza deletion function
   const deletePizza = (pizzaId, refresh, setRefresh) => {
@@ -20,38 +31,83 @@ const Pizza = (props) => {
         } else {
           setRefresh(false);
         }
-        navigate("/ViewPizzas");
       });
   };
 
-  return (
-    <div className="pizza">
-      <span className="pizza--title">
-        <h1>{props.pizzaName}</h1>
-      </span>
-      <span className="pizza--row">
-        <h5>Recipe by:</h5>
-        <h3>{props.owner}</h3>
-      </span>
-      <span className="pizza--row">
-        {" "}
-        <h2>Ingredients:</h2>
-      </span>
-      <span className="pizza--ingredients">
-        {props.ingredients.map((ingredient) => {
-          return <p className="pizza--ingredient">{ingredient}</p>;
-        })}
-      </span>
-      <span className="pizza--row">
-        <p>{props.recipe}</p>
-      </span>
-      <button
-        onClick={() => deletePizza(props._id, props.refresh, props.setRefresh)}
-      >
-        Delete Pizza
-      </button>
-    </div>
-  );
+  if (!modalOpen) {
+    return (
+      <div className="pizza">
+        <span className="pizza--title">
+          <h1>{props.pizzaName}</h1>
+        </span>
+        <span className="pizza--row">
+          <h5>Recipe by:</h5>
+          <h3>{props.owner}</h3>
+        </span>
+        <span className="pizza--row">
+          {" "}
+          <h2>Ingredients:</h2>
+        </span>
+        <span className="pizza--ingredients">
+          {props.ingredients.map((ingredient) => {
+            return <p className="pizza--ingredient">{ingredient}</p>;
+          })}
+        </span>
+        <span className="pizza--row">
+          <p>{props.recipe}</p>
+        </span>
+        <button onClick={() => openModal()}>Show More</button>
+        <button
+          onClick={() =>
+            deletePizza(props._id, props.refresh, props.setRefresh)
+          }
+        >
+          Delete Pizza
+        </button>
+      </div>
+    );
+  } else {
+    return (
+      <>
+        <Modal
+          pizzaName={props.pizzaName}
+          owner={props.owner}
+          ingredients={props.ingredients}
+          recipe={props.recipe}
+          setModalOpen={setModalOpen}
+        />
+        <div className="pizza">
+          <span className="pizza--title">
+            <h1>{props.pizzaName}</h1>
+          </span>
+          <span className="pizza--row">
+            <h5>Recipe by:</h5>
+            <h3>{props.owner}</h3>
+          </span>
+          <span className="pizza--row">
+            {" "}
+            <h2>Ingredients:</h2>
+          </span>
+          <span className="pizza--ingredients">
+            {props.ingredients.map((ingredient) => {
+              return <p className="pizza--ingredient">{ingredient}</p>;
+            })}
+          </span>
+          <span className="pizza--row">
+            <p>{props.recipe}</p>
+          </span>
+          <button onClick={() => openModal()}>Show More</button>
+          <button
+            onClick={() =>
+              deletePizza(props._id, props.refresh, props.setRefresh)
+            }
+          >
+            Delete Pizza
+          </button>
+        </div>
+      </>
+    );
+  }
 };
 
 export default Pizza;

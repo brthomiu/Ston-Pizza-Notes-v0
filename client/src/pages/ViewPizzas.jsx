@@ -9,7 +9,6 @@ const ViewPizzas = () => {
   // Local state to store pizza data fetched from backend
   const [pizzaList, setPizzaList] = useState([]);
   const [refresh, setRefresh] = useState(false);
-  // // Initialize dispatch and navigate
 
   const { pizza, isError, isLoading } = useSelector((state) => state.pizza);
 
