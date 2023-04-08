@@ -40,7 +40,7 @@ Axios is used to make API fetch requests to the backend.
 
 # Developer notes
 
-## Current version - 0.1.11a - 4/8/2023
+## Current version - 0.12a - 4/8/2023
 
 ---
 
@@ -51,8 +51,6 @@ Axios is used to make API fetch requests to the backend.
 - Clicking outside of modals should close them
 
 - Add character limits for all input fields
-
-- Update media queries for mobile devices
 
 - Ability to add image(s) to recipe
     - Limit file size for images

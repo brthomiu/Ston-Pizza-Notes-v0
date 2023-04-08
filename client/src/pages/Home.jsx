@@ -25,7 +25,7 @@ const Home = () => {
     return <Spinner />;
   }
 
-  return <div>Home</div>;
+  return <div><h2>Welcome to Stön Pizza Notes v0.12a</h2><br></br><>Select Create Pizza to publish a new recipe, or Browse to view recipes.</><br></br></div>;
 };
 
 export default Home;
