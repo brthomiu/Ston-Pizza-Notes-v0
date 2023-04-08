@@ -38,11 +38,13 @@ Axios is used to make API fetch requests to the backend.
 
 ---
 
-# Devlog - To-do & Notes
+# Developer notes
+
+## Current version - 0.1.1a - 4/7/2023
 
 ---
 
-## Current version - 0.1.1a - 4/7/2023
+## Upcoming features - to be implemented soon
 
 - Require permission to delete recipes
 
