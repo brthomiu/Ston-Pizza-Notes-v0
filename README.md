@@ -52,6 +52,8 @@ Axios is used to make API fetch requests to the backend.
 
 - Clicking outside of modals should close them
 
+- Add character limits for all input fields
+
 - Update media queries for mobile devices
 
 - Ability to add image(s) to recipe
@@ -88,3 +90,5 @@ Axios is used to make API fetch requests to the backend.
   - Make all instances of usernames a link to open the modal
   - Show created recipes on profile
   - Show rated recipes on profile
+
+- Implement unit tests for basic features
