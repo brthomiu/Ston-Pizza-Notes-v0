@@ -10,10 +10,35 @@ const Pizza = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   // Open modal function
-
   const openModal = () => {
     setModalOpen(true);
     document.body.style.overflow = "hidden";
+  };
+
+  // Function to parse recipe text into a preview
+  const previewRecipe = (recipe) => {
+    if (recipe.length > 140) {
+      let preview = `${recipe.slice(0, 149)}.......`;
+      return preview;
+    } else {
+      return recipe;
+    }
+  };
+
+  // // Function to condense ingredients into a preview
+  const previewIngredients = (ingredients) => {
+    if (ingredients.length > 4) {
+      let preview = [
+        ingredients[0],
+        ingredients[1],
+        ingredients[2],
+        `${ingredients.length - 3} more`,
+      ];
+
+      return preview;
+    } else {
+      return ingredients;
+    }
   };
 
   // Pizza deletion function
@@ -39,37 +64,34 @@ const Pizza = (props) => {
       <div className="pizza">
         <span className="pizza--title">
           <h1>{props.pizzaName}</h1>
-        </span>
-        <span className="pizza--row">
-          <h5>Recipe by:</h5>
-          <h3>{props.owner}</h3>
+          <div className="pizza--title-row">
+            <p>Made by:</p>
+            <p className="pizza--title-name">{props.owner}</p>
+          </div>
         </span>
         <span className="pizza--row">
           {" "}
           <h2>Ingredients:</h2>
         </span>
         <span className="pizza--ingredients">
-          {props.ingredients.map((ingredient) => {
+          {previewIngredients(props.ingredients).map((ingredient) => {
             return <p className="pizza--ingredient">{ingredient}</p>;
           })}
         </span>
         <span className="pizza--row">
-          <p>{props.recipe}</p>
+          <p>{previewRecipe(props.recipe)}</p>
         </span>
         <button onClick={() => openModal()}>Show More</button>
-        <button
-          onClick={() =>
-            deletePizza(props._id, props.refresh, props.setRefresh)
-          }
-        >
-          Delete Pizza
-        </button>
       </div>
     );
   } else {
     return (
       <>
         <Modal
+          _id={props._id}
+          refresh={props.refresh}
+          setRefresh={props.setRefresh}
+          deletePizza={deletePizza}
           pizzaName={props.pizzaName}
           owner={props.owner}
           ingredients={props.ingredients}
@@ -80,30 +102,20 @@ const Pizza = (props) => {
           <span className="pizza--title">
             <h1>{props.pizzaName}</h1>
           </span>
-          <span className="pizza--row">
-            <h5>Recipe by:</h5>
-            <h3>{props.owner}</h3>
-          </span>
+
           <span className="pizza--row">
             {" "}
             <h2>Ingredients:</h2>
           </span>
           <span className="pizza--ingredients">
-            {props.ingredients.map((ingredient) => {
+            {previewIngredients(props.ingredients).map((ingredient) => {
               return <p className="pizza--ingredient">{ingredient}</p>;
             })}
           </span>
           <span className="pizza--row">
-            <p>{props.recipe}</p>
+            <p>{previewRecipe(props.recipe)}</p>
           </span>
           <button onClick={() => openModal()}>Show More</button>
-          <button
-            onClick={() =>
-              deletePizza(props._id, props.refresh, props.setRefresh)
-            }
-          >
-            Delete Pizza
-          </button>
         </div>
       </>
     );
