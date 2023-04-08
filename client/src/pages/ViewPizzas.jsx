@@ -11,6 +11,7 @@ const ViewPizzas = () => {
   const [refresh, setRefresh] = useState(false);
 
   const { pizza, isError, isLoading } = useSelector((state) => state.pizza);
+  const { user } = useSelector((state) => state.auth)
 
   // Hook to GET pizza data
   useEffect(() => {

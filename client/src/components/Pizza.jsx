@@ -99,12 +99,15 @@ const Pizza = (props) => {
           setModalOpen={setModalOpen}
         />
         <div className="pizza">
-          <span className="pizza--title">
-            <h1>{props.pizzaName}</h1>
-          </span>
+        <span className="pizza--title">
+          <h1>{props.pizzaName}</h1>
+          <div className="pizza--title-row">
+            <p>Made by:</p>
+            <p className="pizza--title-name">{props.owner}</p>
+          </div>
+        </span>
 
           <span className="pizza--row">
-            {" "}
             <h2>Ingredients:</h2>
           </span>
           <span className="pizza--ingredients">
