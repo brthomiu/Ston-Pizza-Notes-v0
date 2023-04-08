@@ -52,8 +52,11 @@ Axios is used to make API fetch requests to the backend.
 
 - Clicking outside of modals should close them
 
-- Make modal almost fullscreen on mobile
-  leave just enough room so nobody is tempted to use the back button
+- Update media queries for mobile devices
+
+- Ability to add image(s) to recipe
+    - Limit file size for images
+    - JS image compression library?
 
 - Password reset functionality
 
