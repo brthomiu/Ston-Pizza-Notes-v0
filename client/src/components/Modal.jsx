@@ -26,24 +26,27 @@ const Modal = (props) => {
             <span className="modal--title">
               <h1>{props.pizzaName}</h1>
             </span>
-            <span className="modal--row">
-              <h5>Recipe by:</h5>
-              <h3>{props.owner}</h3>
+            <span className="modal--owner">
+              <p>Made by:</p>
+              <p className="modal--name">{props.owner}</p>
             </span>
             <span className="modal--row">
-              {" "}
               <h2>Ingredients:</h2>
             </span>
             <span className="modal--ingredients">
               {props.ingredients.map((ingredient) => {
-                return <p className="pizza--ingredient">{ingredient}</p>;
+                return <p className="modal--ingredient">{ingredient}</p>;
               })}
             </span>
-            <span className="modal--row">
+            <span className="modal--recipe">
               <p>{props.recipe}</p>
-            </span>{" "}
-            <button onClick={() => closeModal()}>Close</button>
-            <button onClick={() => confirmDelete()}>Delete Pizza</button>
+            </span>
+            <span className="modal--buttons">
+              <button onClick={() => closeModal()}>Close</button>
+              <button className="deleteButton" onClick={() => confirmDelete()}>
+                Delete Pizza
+              </button>
+            </span>
           </div>
         </div>
       </>
@@ -64,24 +67,27 @@ const Modal = (props) => {
           <span className="modal--title">
             <h1>{props.pizzaName}</h1>
           </span>
-          <span className="modal--row">
-            <h5>Recipe by:</h5>
+          <span className="modal--owner">
+            <h5>Made by:</h5>
             <h3>{props.owner}</h3>
           </span>
           <span className="modal--row">
-            {" "}
             <h2>Ingredients:</h2>
           </span>
           <span className="modal--ingredients">
             {props.ingredients.map((ingredient) => {
-              return <p className="pizza--ingredient">{ingredient}</p>;
+              return <p className="modal--ingredient">{ingredient}</p>;
             })}
           </span>
-          <span className="modal--row">
+          <span className="modal--recipe">
             <p>{props.recipe}</p>
-          </span>{" "}
-          <button onClick={() => closeModal()}>Close</button>
-          <button onClick={() => confirmDelete()}>Delete Pizza</button>
+          </span>
+          <span className="modal--buttons">
+            <button onClick={() => closeModal()}>Close</button>
+            <button className="deleteButton" onClick={() => confirmDelete()}>
+              Delete Pizza
+            </button>
+          </span>
         </div>
       </div>
     </>

@@ -25,14 +25,14 @@ const Navigation = () => {
       //Returns navigation bar
       <>
         <nav className="navbar">
-          <Link to="/">
-            <button>Login</button>
-          </Link>
           <Link to="/About">
             <button>About</button>
           </Link>
           <Link to="/ViewPizzas">
-            <button>View Pizzas</button>
+            <button>Browse</button>
+          </Link>
+          <Link to="/">
+            <button>Login</button>
           </Link>
           <Link to="/Register">
             <button>Register</button>
@@ -53,7 +53,7 @@ const Navigation = () => {
             <button>Create Pizza</button>
           </Link>
           <Link to="/ViewPizzas">
-            <button>View Pizzas</button>
+            <button>Browse</button>
           </Link>
           <button onClick={onLogout}>Logout</button>
         </nav>
