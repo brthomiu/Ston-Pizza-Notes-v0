@@ -1,7 +1,6 @@
 {
-    "type":"module",
-  "scripts": {
-    "start": "node -experimental-modules server/index.ts",
+      "scripts": {
+    "start": "node server/index.ts",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   }
 }

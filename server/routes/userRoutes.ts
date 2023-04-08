@@ -9,4 +9,5 @@ router.post("/api/users", registerUser);
 
 router.get("/me", protect, getMe)
 
+// module.exports = router
 export default router;

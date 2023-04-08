@@ -14,4 +14,5 @@ router.get("/api/pizzas", getPizzas);
 
 router.delete("/api/pizzas/:id", deletePizza);
 
+// module.exports = router
 export default router;

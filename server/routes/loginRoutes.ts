@@ -1,3 +1,6 @@
+// const express = require('express')
+// const loginUser = require('../controllers/userController')
+
 import express, { Request, Response } from "express";
 import { loginUser } from "../controllers/userController";
 
@@ -9,4 +12,5 @@ router.get("/api/users/login", (req: Request, res: Response) => {
   res.send("This is not the way to log in!!");
 });
 
+// module.exports = router
 export default router;
