@@ -16,7 +16,7 @@ const path = require("path")
 
 dotenv.config({ path: "./.env" });
 
-const app: any = express();
+let app: any = express();
 const port = process.env.PORT;
 
 const cors = require('cors');
