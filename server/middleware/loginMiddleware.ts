@@ -2,7 +2,7 @@
 
 const jsonwebtoken = require('jsonwebtoken')
 const expressAsyncHandler = require('express-async-handler')
-const User = require('../models/userModel')
+const {User} = require('../models/userModel')
 
 // import jsonwebtoken from "jsonwebtoken";
 // import expressAsyncHandler from "express-async-handler";

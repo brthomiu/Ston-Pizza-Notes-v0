@@ -1,6 +1,6 @@
 // @ts-nocheck 
 const expressAsyncHandler = require("express-async-handler")
-const Pizza = require("../models/pizzaModel")
+const {Pizza} = require("../models/pizzaModel")
 
 
 // import expressAsyncHandler from "express-async-handler";
@@ -58,17 +58,17 @@ const deletePizza = expressAsyncHandler(async (req: any, res) => {
     throw new Error("Pizza not found");
   }
 
-  //Check for user
-  if (!req.user) {
-    res.status(401);
-    throw new Error("User not found");
-  }
+  // //Check for user
+  // if (!req.user) {
+  //   res.status(401);
+  //   throw new Error("User not found");
+  // }
 
-  //Make sure the logged in user matches the goal user
-  if (pizza.user.toString() !== req.user.id) {
-    res.status(401);
-    throw new Error("User not authorized");
-  }
+  // //Make sure the logged in user matches the recipe owner
+  // if (pizza.user.toString() !== req.user.id) {
+  //   res.status(401);
+  //   throw new Error("User not authorized");
+  // }
 
   await Pizza.findByIdAndDelete(req.params.id);
 
