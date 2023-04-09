@@ -1,5 +1,11 @@
-import logger, { P } from "pino";
-import dayjs from "dayjs";
+// @ts-nocheck 
+
+const logger = require('pino')
+const P = require('pino')
+const dayjs = require('dayjs')
+
+// import logger, { P } from "pino";
+// import dayjs from "dayjs";
 
 const level: string = "info";
 
@@ -14,4 +20,5 @@ const log = logger({
   timestamp: () => `,"Time":"${dayjs().format()}"`
 });
 
-export default log
+// export default log
+module.exports = log

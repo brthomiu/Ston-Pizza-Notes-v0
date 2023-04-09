@@ -1,6 +1,13 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import log from "./logger";
+// @ts-nocheck 
+
+const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+const log = require('./logger')
+
+
+// import mongoose from "mongoose";
+// import dotenv from "dotenv";
+// import log from "./logger";
 
 dotenv.config();
 
@@ -14,4 +21,6 @@ async function connectToDb() {
   }
 }
 
-export default connectToDb
+// export default connectToDb
+
+module.exports = connectToDb

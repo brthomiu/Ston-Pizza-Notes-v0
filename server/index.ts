@@ -1,13 +1,22 @@
-import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
-import connectToDb from "./utils/connectToDb";
-import log from "./utils/logger";
-import router from "./routes";
-import path = require("path");
+// @ts-nocheck 
+const express = require('express');
+const dotenv = require('dotenv');
+const connectToDb = require("./utils/connectToDb")
+const log = require("./utils/logger")
+const router = require ("./routes")
+const path = require("path")
+
+
+// import express, { Express, Request, Response } from "express";
+// import dotenv from "dotenv";
+// import connectToDb from "./utils/connectToDb";
+// import log from "./utils/logger";
+// import router from "./routes";
+// const path = require("path");
 
 dotenv.config({ path: "./.env" });
 
-const app: Express = express();
+const app: any = express();
 const port = process.env.PORT;
 
 const cors = require('cors');

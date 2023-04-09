@@ -1,6 +1,12 @@
-import jsonwebtoken from "jsonwebtoken";
-import expressAsyncHandler from "express-async-handler";
-import { User } from "../models/userModel";
+// @ts-nocheck 
+
+const jsonwebtoken = require('jsonwebtoken')
+const expressAsyncHandler = require('express-async-handler')
+const User = require('../models/userModel')
+
+// import jsonwebtoken from "jsonwebtoken";
+// import expressAsyncHandler from "express-async-handler";
+// import { User } from "../models/userModel";
 
 export const protect = expressAsyncHandler(async (req: any, res, next) => {
   let token;

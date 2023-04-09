@@ -1,9 +1,14 @@
-import expressAsyncHandler from "express-async-handler";
-import { Pizza } from "../models/pizzaModel";
+// @ts-nocheck 
+const expressAsyncHandler = require("express-async-handler")
+const Pizza = require("../models/pizzaModel")
+
+
+// import expressAsyncHandler from "express-async-handler";
+// import { Pizza } from "../models/pizzaModel";
 
 // Create new pizza
 // POST /api/pizzas
-export const createPizza = expressAsyncHandler(async (req, res) => {
+const createPizza = expressAsyncHandler(async (req, res) => {
   const { owner, pizzaName, ingredients, recipe } = req.body;
 
   if (!owner || !pizzaName || !ingredients || !recipe) {
@@ -36,7 +41,7 @@ export const createPizza = expressAsyncHandler(async (req, res) => {
 //@desc     Get pizzas
 //@route    GET /api/pizzas
 //@access   Private
-export const getPizzas = expressAsyncHandler(async (req, res) => {
+const getPizzas = expressAsyncHandler(async (req, res) => {
   const pizzas = await Pizza.find();
 
   res.status(200).json(pizzas);
@@ -45,7 +50,7 @@ export const getPizzas = expressAsyncHandler(async (req, res) => {
 //@desc     Delete pizza
 //@route    DELETE /api/pizza/:id
 //@access   Private
-export const deletePizza = expressAsyncHandler(async (req: any, res) => {
+const deletePizza = expressAsyncHandler(async (req: any, res) => {
   const pizza: any = await Pizza.findById(req.params.id);
 
   if (!pizza) {
@@ -69,3 +74,6 @@ export const deletePizza = expressAsyncHandler(async (req: any, res) => {
 
   res.status(200).json({ id: req.params.id });
 });
+
+module.exports = { createPizza, getPizzas, deletePizza}
+// set functions back to export if you undo this

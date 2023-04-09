@@ -1,7 +1,12 @@
-import expressAsyncHandler from "express-async-handler";
-import { User } from "../models/userModel";
-import bcrypt from "bcryptjs";
-import { sign } from "jsonwebtoken";
+const expressAsyncHandler = require("express-async-handler");
+const User = require("../models/userModel");
+const bcrypt = require("bcryptjs");
+const sign = require("jsonwebtoken");
+
+// import expressAsyncHandler from "express-async-handler";
+// import { User } from "../models/userModel";
+// import bcrypt from "bcryptjs";
+// import { sign } from "jsonwebtoken";
 
 const secret = (): string => {
   let newSecret = process.env.JWT_SECRET;
@@ -19,7 +24,7 @@ const generateToken = (id: string) => {
 
 // Register new user
 // POST /api/users
-export const registerUser = expressAsyncHandler(async (req, res) => {
+const registerUser = expressAsyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
@@ -59,7 +64,7 @@ export const registerUser = expressAsyncHandler(async (req, res) => {
 
 // Authenticate a user
 // POST /api/login
-export const loginUser = expressAsyncHandler(async (req, res) => {
+const loginUser = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   // Check for user email
@@ -86,3 +91,10 @@ export const getMe = expressAsyncHandler(async (req: any, res) => {
   console.log("getMe user:", req.user);
   res.status(200).json(req.user);
 });
+
+// Don't forget to add the exports back to the functions if you undo this
+module.exports = {
+  registerUser,
+  loginUser,
+  getMe,
+};
